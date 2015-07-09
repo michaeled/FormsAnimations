@@ -8,334 +8,211 @@ namespace FormsAnimations
 		#region Expo
 
 		/// <summary>
-		/// Easing equation function for an exponential (2^t) easing out: 
+		/// Easing equation function for an exponential (2^x) easing out: 
 		/// decelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double ExpoEaseOut(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double ExpoEaseOut(double x)
 		{
-			return (t == d) ? b + c : c * (-Math.Pow(2, -10 * t / d) + 1) + b;
+			return x.ApproximatelyEquals(1) ? 1 : -Math.Pow(2, -10 * x) + 1;
 		}
 
+
 		/// <summary>
-		/// Easing equation function for an exponential (2^t) easing in: 
+		/// Easing equation function for an exponential (2^x) easing in: 
 		/// accelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double ExpoEaseIn(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double ExpoEaseIn(double x)
 		{
-			return (t == 0) ? b : c * Math.Pow(2, 10 * (t / d - 1)) + b;
+			return x.ApproximatelyEquals(0) ? 0 : Math.Pow(2, 10 * (x - 1));
 		}
 
+
 		/// <summary>
-		/// Easing equation function for an exponential (2^t) easing in/out: 
+		/// Easing equation function for an exponential (2^x) easing in/out: 
 		/// acceleration until halfway, then deceleration.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double ExpoEaseInOut(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double ExpoEaseInOut(double x)
 		{
-			if (t == 0)
-				return b;
+			if (x.ApproximatelyEquals(0))
+				return 0;
 
-			if (t == d)
-				return b + c;
+			if (x.ApproximatelyEquals(1))
+				return 1;
 
-			if ((t /= d / 2) < 1)
-				return c / 2 * Math.Pow(2, 10 * (t - 1)) + b;
+			if ((x / 2) < 1)
+				return 0.5 * Math.Pow(2, 10 * (x - 1));
 
-			return c / 2 * (-Math.Pow(2, -10 * --t) + 2) + b;
+			return 0.5 * -Math.Pow(2, -10 * --x) + 2;
 		}
 
-		/// <summary>
-		/// Easing equation function for an exponential (2^t) easing out/in: 
-		/// deceleration until halfway, then acceleration.
-		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double ExpoEaseOutIn(double t, double b, double c, double d)
-		{
-			if (t < d / 2)
-				return ExpoEaseOut(t * 2, b, c / 2, d);
-
-			return ExpoEaseIn((t * 2) - d, b + c / 2, c / 2, d);
-		}
 
 		#endregion
 
 		#region Circular
 
 		/// <summary>
-		/// Easing equation function for a circular (sqrt(1-t^2)) easing out: 
+		/// Easing equation function for a circular (sqrt(1-x^2)) easing out: 
 		/// decelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double CircEaseOut(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double CircEaseOut(double x)
 		{
-			return c * Math.Sqrt(1 - (t = t / d - 1) * t) + b;
+			return Math.Sqrt(1 - (x - 1) * x);
 		}
 
+
 		/// <summary>
-		/// Easing equation function for a circular (sqrt(1-t^2)) easing in: 
+		/// Easing equation function for a circular (sqrt(1-x^2)) easing in: 
 		/// accelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double CircEaseIn(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double CircEaseIn(double x)
 		{
-			return -c * (Math.Sqrt(1 - (t /= d) * t) - 1) + b;
+			return -1 * (Math.Sqrt(1 - x * x) - 1);
 		}
+
 
 		/// <summary>
-		/// Easing equation function for a circular (sqrt(1-t^2)) easing in/out: 
+		/// Easing equation function for a circular (sqrt(1-x^2)) easing in/out: 
 		/// acceleration until halfway, then deceleration.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double CircEaseInOut(double t, double b, double c, double d)
+		/// <param name="t">Current time</param>
+		public static double CircEaseInOut(double t)
 		{
-			if ((t /= d / 2) < 1)
-				return -c / 2 * (Math.Sqrt(1 - t * t) - 1) + b;
+			if ((t / 2) < 1)
+				return -0.5 * (Math.Sqrt(1 - t * t) - 1);
 
-			return c / 2 * (Math.Sqrt(1 - (t -= 2) * t) + 1) + b;
+			return 0.5  * (Math.Sqrt(1 - (t -= 2) * t) + 1);
 		}
 
-		/// <summary>
-		/// Easing equation function for a circular (sqrt(1-t^2)) easing in/out: 
-		/// acceleration until halfway, then deceleration.
-		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double CircEaseOutIn(double t, double b, double c, double d)
-		{
-			if (t < d / 2)
-				return CircEaseOut(t * 2, b, c / 2, d);
-
-			return CircEaseIn((t * 2) - d, b + c / 2, c / 2, d);
-		}
 
 		#endregion
 
 		#region Quad
 
 		/// <summary>
-		/// Easing equation function for a quadratic (t^2) easing out: 
+		/// Easing equation function for a quadratic (x^2) easing out: 
 		/// decelerating from zero velocity.
 		/// </summary>
 		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuadEaseOut(double t, double b, double c, double d)
+		public static double QuadEaseOut(double t)
 		{
-			return -c * (t /= d) * (t - 2) + b;
+			return -1 * t * (t - 2);
 		}
 
+
+
 		/// <summary>
-		/// Easing equation function for a quadratic (t^2) easing in: 
+		/// Easing equation function for a quadratic (x^2) easing in: 
 		/// accelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuadEaseIn(double t, double b, double c, double d)
+		/// <param name="t">Current time</param>
+		public static double QuadEaseIn(double t)
 		{
-			return c * (t /= d) * t + b;
+			return t * t;
 		}
 
+
 		/// <summary>
-		/// Easing equation function for a quadratic (t^2) easing in/out: 
+		/// Easing equation function for a quadratic (x^2) easing in/out: 
 		/// acceleration until halfway, then deceleration.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuadEaseInOut(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double QuadEaseInOut(double x)
 		{
-			if ((t /= d / 2) < 1)
-				return c / 2 * t * t + b;
+			if ((x / 2) < 1)
+				return 0.5 * x * x;
 
-			return -c / 2 * ((--t) * (t - 2) - 1) + b;
+			return -0.5 * ((--x) * (x - 2) - 1);
 		}
 
-		/// <summary>
-		/// Easing equation function for a quadratic (t^2) easing out/in: 
-		/// deceleration until halfway, then acceleration.
-		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuadEaseOutIn(double t, double b, double c, double d)
-		{
-			if (t < d / 2)
-				return QuadEaseOut(t * 2, b, c / 2, d);
-
-			return QuadEaseIn((t * 2) - d, b + c / 2, c / 2, d);
-		}
 
 		#endregion
 
 		#region Quartic
 
+
 		/// <summary>
-		/// Easing equation function for a quartic (t^4) easing out: 
+		/// Easing equation function for a quartic (x^4) easing out: 
 		/// decelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuartEaseOut(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double QuartEaseOut(double x)
 		{
-			return -c * ((t = t / d - 1) * t * t * t - 1) + b;
+			return -1 * ((x - 1) * x * x * x - 1);
 		}
 
+
 		/// <summary>
-		/// Easing equation function for a quartic (t^4) easing in: 
+		/// Easing equation function for a quartic (x^4) easing in: 
 		/// accelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuartEaseIn(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double QuartEaseIn(double x)
 		{
-			return c * (t /= d) * t * t * t + b;
+			return x * x * x * x;
 		}
 
+
 		/// <summary>
-		/// Easing equation function for a quartic (t^4) easing in/out: 
+		/// Easing equation function for a quartic (x^4) easing in/out: 
 		/// acceleration until halfway, then deceleration.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuartEaseInOut(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double QuartEaseInOut(double x)
 		{
-			if ((t /= d / 2) < 1)
-				return c / 2 * t * t * t * t + b;
+			if ((x / 2) < 1)
+				return -0.5 * x * x * x * x;
 
-			return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+			return -0.5 * ((x -= 2) * x * x * x - 2);
 		}
 
-		/// <summary>
-		/// Easing equation function for a quartic (t^4) easing out/in: 
-		/// deceleration until halfway, then acceleration.
-		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuartEaseOutIn(double t, double b, double c, double d)
-		{
-			if (t < d / 2)
-				return QuartEaseOut(t * 2, b, c / 2, d);
-
-			return QuartEaseIn((t * 2) - d, b + c / 2, c / 2, d);
-		}
 
 		#endregion
 
 		#region Quintic
 
 		/// <summary>
-		/// Easing equation function for a quintic (t^5) easing out: 
+		/// Easing equation function for a quintic (x^5) easing out: 
 		/// decelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuintEaseOut(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double QuintEaseOut(double x)
 		{
-			return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
+			return ((x - 1) * x * x * x * x + 1);
 		}
 
+
 		/// <summary>
-		/// Easing equation function for a quintic (t^5) easing in: 
+		/// Easing equation function for a quintic (x^5) easing in: 
 		/// accelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuintEaseIn(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double QuintEaseIn(double x)
 		{
-			return c * (t /= d) * t * t * t * t + b;
+			return x * x * x * x * x;
 		}
 
-		/// <summary>
-		/// Easing equation function for a quintic (t^5) easing in/out: 
-		/// acceleration until halfway, then deceleration.
-		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double QuintEaseInOut(double t, double b, double c, double d)
-		{
-			if ((t /= d / 2) < 1)
-				return c / 2 * t * t * t * t * t + b;
-			return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
-		}
 
 		/// <summary>
-		/// Easing equation function for a quintic (t^5) easing in/out: 
+		/// Easing equation function for a quintic (x^5) easing in/out: 
 		/// acceleration until halfway, then deceleration.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
+		/// <param name="x">Current time in seconds.</param>
 		/// <param name="b">Starting value.</param>
 		/// <param name="c">Final value.</param>
 		/// <param name="d">Duration of animation.</param>
 		/// <returns>The correct value.</returns>
-		public static double QuintEaseOutIn(double t, double b, double c, double d)
+		public static double QuintEaseInOut(double x)
 		{
-			if (t < d / 2)
-				return QuintEaseOut(t * 2, b, c / 2, d);
-			return QuintEaseIn((t * 2) - d, b + c / 2, c / 2, d);
+			if ((x / 2) < 1)
+				return 0.5 * x * x * x * x * x;
+			return 0.5 * ((x -= 2) * x * x * x * x + 2);
 		}
+
 
 		#endregion
 
@@ -345,79 +222,35 @@ namespace FormsAnimations
 		/// Easing equation function for an elastic (exponentially decaying sine wave) easing out: 
 		/// decelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double ElasticEaseOut(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double ElasticEaseOut(double x)
 		{
-			if ((t /= d) == 1)
-				return b + c;
+			if (x.ApproximatelyEquals(1))
+				return 1;
 
-			double p = d * .3;
-			double s = p / 4;
+			const double p = 0.3;
+            const double s = 0.075;
 
-			return (c * Math.Pow(2, -10 * t) * Math.Sin((t * d - s) * (2 * Math.PI) / p) + c + b);
+			return (Math.Pow(2, -10 * x) * Math.Sin((x - s) * (2 * Math.PI) / p));
 		}
+
 
 		/// <summary>
 		/// Easing equation function for an elastic (exponentially decaying sine wave) easing in: 
 		/// accelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double ElasticEaseIn(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double ElasticEaseIn(double x)
 		{
-			if ((t /= d) == 1)
-				return b + c;
+			if (x.ApproximatelyEquals(1))
+				return 1;
 
-			double p = d * .3;
-			double s = p / 4;
+            const double p = 0.3;
+            const double s = 0.075;
 
-			return -(c * Math.Pow(2, 10 * (t -= 1)) * Math.Sin((t * d - s) * (2 * Math.PI) / p)) + b;
+			return -(Math.Pow(2, 10 * (x -= 1)) * Math.Sin((x - s) * (2 * Math.PI) / p));
 		}
 
-		/// <summary>
-		/// Easing equation function for an elastic (exponentially decaying sine wave) easing in/out: 
-		/// acceleration until halfway, then deceleration.
-		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double ElasticEaseInOut(double t, double b, double c, double d)
-		{
-			if ((t /= d / 2) == 2)
-				return b + c;
-
-			double p = d * (.3 * 1.5);
-			double s = p / 4;
-
-			if (t < 1)
-				return -.5 * (c * Math.Pow(2, 10 * (t -= 1)) * Math.Sin((t * d - s) * (2 * Math.PI) / p)) + b;
-			return c * Math.Pow(2, -10 * (t -= 1)) * Math.Sin((t * d - s) * (2 * Math.PI) / p) * .5 + c + b;
-		}
-
-		/// <summary>
-		/// Easing equation function for an elastic (exponentially decaying sine wave) easing out/in: 
-		/// deceleration until halfway, then acceleration.
-		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double ElasticEaseOutIn(double t, double b, double c, double d)
-		{
-			if (t < d / 2)
-				return ElasticEaseOut(t * 2, b, c / 2, d);
-			return ElasticEaseIn((t * 2) - d, b + c / 2, c / 2, d);
-		}
 
 		#endregion
 
@@ -427,133 +260,112 @@ namespace FormsAnimations
 		/// Easing equation function for a bounce (exponentially decaying parabolic bounce) easing out: 
 		/// decelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double BounceEaseOut(double t, double b, double c, double d)
+		/// <param name="x">Current time in seconds.</param>
+		public static double BounceEaseOut(double x)
 		{
-			if ((t /= d) < (1 / 2.75))
-				return c * (7.5625 * t * t) + b;
-			else if (t < (2 / 2.75))
-				return c * (7.5625 * (t -= (1.5 / 2.75)) * t + .75) + b;
-			else if (t < (2.5 / 2.75))
-				return c * (7.5625 * (t -= (2.25 / 2.75)) * t + .9375) + b;
-			else
-				return c * (7.5625 * (t -= (2.625 / 2.75)) * t + .984375) + b;
+            const double i = 7.5625;
+
+		    if (x < (1 / 2.75))
+				return i * x * x;
+		    if (x < (2 / 2.75))
+		        return (i * (x -= (1.5 / 2.75)) * x + .75);
+		    if (x < (2.5 / 2.75))
+		        return (i * (x -= (2.25 / 2.75)) * x + .9375);
+		    
+            return (i * (x -= (2.625 / 2.75)) * x + .984375);
 		}
 
-		/// <summary>
+
+	    /// <summary>
 		/// Easing equation function for a bounce (exponentially decaying parabolic bounce) easing in: 
 		/// accelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double BounceEaseIn(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double BounceEaseIn(double x)
 		{
-			return c - BounceEaseOut(d - t, 0, c, d) + b;
+			return 1 - BounceEaseOut(1 - x);
 		}
+
 
 		/// <summary>
 		/// Easing equation function for a bounce (exponentially decaying parabolic bounce) easing in/out: 
 		/// acceleration until halfway, then deceleration.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double BounceEaseInOut(double t, double b, double c, double d)
+		/// <param name="x">Current time in seconds.</param>
+		public static double BounceEaseInOut(double x)
 		{
-			if (t < d / 2)
-				return BounceEaseIn(t * 2, 0, c, d) * .5 + b;
-			else
-				return BounceEaseOut(t * 2 - d, 0, c, d) * .5 + c * .5 + b;
+		    if (x < 0.5)
+				return BounceEaseIn(x * 2) * 0.5;
+		    
+            return BounceEaseOut(x * 2 - 1) * 1;
 		}
 
-		/// <summary>
+	    /// <summary>
 		/// Easing equation function for a bounce (exponentially decaying parabolic bounce) easing out/in: 
 		/// deceleration until halfway, then acceleration.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double BounceEaseOutIn(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double BounceEaseOutIn(double x, double b, double c, double d)
 		{
-			if (t < d / 2)
-				return BounceEaseOut(t * 2, b, c / 2, d);
-			return BounceEaseIn((t * 2) - d, b + c / 2, c / 2, d);
+			if (x < 0.5)
+				return BounceEaseOut(x * 2);
+
+			return BounceEaseIn((x * 2) - 1);
 		}
+
 
 		#endregion
 
 		#region Back
 
 		/// <summary>
-		/// Easing equation function for a back (overshooting cubic easing: (s+1)*t^3 - s*t^2) easing out: 
+		/// Easing equation function for a back (overshooting cubic easing: (s+1)*x^3 - s*x^2) easing out: 
 		/// decelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double BackEaseOut(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double BackEaseOut(double x)
 		{
-			return c * ((t = t / d - 1) * t * ((1.70158 + 1) * t + 1.70158) + 1) + b;
+			return ((x - 1) * x * ((1.70158 + 1) * x + 1.70158) + 1);
 		}
 
+
 		/// <summary>
-		/// Easing equation function for a back (overshooting cubic easing: (s+1)*t^3 - s*t^2) easing in: 
+		/// Easing equation function for a back (overshooting cubic easing: (s+1)*x^3 - s*x^2) easing in: 
 		/// accelerating from zero velocity.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double BackEaseIn(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double BackEaseIn(double x)
 		{
-			return c * (t /= d) * t * ((1.70158 + 1) * t - 1.70158) + b;
+			return (x) * x * ((1.70158 + 1) * x - 1.70158);
 		}
 
+
 		/// <summary>
-		/// Easing equation function for a back (overshooting cubic easing: (s+1)*t^3 - s*t^2) easing in/out: 
+		/// Easing equation function for a back (overshooting cubic easing: (s+1)*x^3 - s*x^2) easing in/out: 
 		/// acceleration until halfway, then deceleration.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double BackEaseInOut(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double BackEaseInOut(double x)
 		{
-			double s = 1.70158;
-			if ((t /= d / 2) < 1)
-				return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b;
-			return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
+			var p = 1.70158;
+
+			if ((x / 2) < 1)
+				return 0.5 * (x * x * (((p *= (1.525)) + 1) * x - p));
+
+			return 0.5 * ((x -= 2) * x * (((p *= (1.525)) + 1) * x + p) + 2);
 		}
 
+
 		/// <summary>
-		/// Easing equation function for a back (overshooting cubic easing: (s+1)*t^3 - s*t^2) easing out/in: 
+		/// Easing equation function for a back (overshooting cubic easing: (s+1)*x^3 - s*x^2) easing out/in: 
 		/// deceleration until halfway, then acceleration.
 		/// </summary>
-		/// <param name="t">Current time in seconds.</param>
-		/// <param name="b">Starting value.</param>
-		/// <param name="c">Final value.</param>
-		/// <param name="d">Duration of animation.</param>
-		/// <returns>The correct value.</returns>
-		public static double BackEaseOutIn(double t, double b, double c, double d)
+		/// <param name="x">Current time</param>
+		public static double BackEaseOutIn(double x)
 		{
-			if (t < d / 2)
-				return BackEaseOut(t * 2, b, c / 2, d);
-			return BackEaseIn((t * 2) - d, b + c / 2, c / 2, d);
+			if (x < 0.5)
+				return BackEaseOut(x * 2);
+			return BackEaseIn((x * 2) - 1);
 		}
 
 		#endregion
