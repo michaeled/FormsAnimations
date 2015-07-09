@@ -2,7 +2,7 @@
 
 namespace FormsAnimations
 {
-	public class EasingEquations
+	public static class EasingEquations
 	{
 
 		#region Expo
@@ -305,7 +305,7 @@ namespace FormsAnimations
 		/// deceleration until halfway, then acceleration.
 		/// </summary>
 		/// <param name="x">Current time</param>
-		public static double BounceEaseOutIn(double x, double b, double c, double d)
+		public static double BounceEaseOutIn(double x)
 		{
 			if (x < 0.5)
 				return BounceEaseOut(x * 2);
