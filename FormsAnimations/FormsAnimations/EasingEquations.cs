@@ -325,7 +325,8 @@ namespace FormsAnimations
 		/// <param name="x">Current time</param>
 		public static double BackEaseOut(double x)
 		{
-			return ((x - 1) * x * ((1.70158 + 1) * x + 1.70158) + 1);
+		    const double s = 1.70158;
+			return ((x - 1) * x * ((s + 1) * x + s)) + 1;
 		}
 
 
@@ -336,7 +337,8 @@ namespace FormsAnimations
 		/// <param name="x">Current time</param>
 		public static double BackEaseIn(double x)
 		{
-			return (x) * x * ((1.70158 + 1) * x - 1.70158);
+            const double s = 1.70158;
+			return x * x * ((s + 1) * x - s);
 		}
 
 
@@ -347,12 +349,12 @@ namespace FormsAnimations
 		/// <param name="x">Current time</param>
 		public static double BackEaseInOut(double x)
 		{
-			var p = 1.70158;
+			var s = 1.70158;
 
 			if ((x / 2) < 1)
-				return 0.5 * (x * x * (((p *= (1.525)) + 1) * x - p));
+				return 0.5 * (x * x * (((s *= (1.525)) + 1) * x - s));
 
-			return 0.5 * ((x -= 2) * x * (((p *= (1.525)) + 1) * x + p) + 2);
+			return 0.5 * ((x -= 2) * x * (((s *= (1.525)) + 1) * x + s) + 2);
 		}
 
 

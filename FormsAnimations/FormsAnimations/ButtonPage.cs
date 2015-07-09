@@ -26,10 +26,10 @@ namespace FormsAnimations
         }
 
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             var btn = sender as Button;
-            AnimationPlayer.Grow(btn, TimeSpan.FromMilliseconds(300));
+            await btn.TranslateTo(100, 0, 300, MoreEasing.BackEaseOut);
         }
     }
 }
