@@ -21,7 +21,7 @@ namespace FormsAnimations
 
             tap.Command = new Command(async (p) =>
             {
-                Debug.WriteLine(label.Text);
+                await label.RelMoveHorizontally(25, 120, Easing.BounceOut);
             });
 
             label.GestureRecognizers.Add(tap);
@@ -30,7 +30,7 @@ namespace FormsAnimations
 
             View = new StackLayout
             {
-                Padding = 5,
+                Padding = 10,
 
                 Children =
                 {

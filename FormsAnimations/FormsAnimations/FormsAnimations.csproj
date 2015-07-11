@@ -43,6 +43,7 @@
     <Compile Include="ExampleViewCell.cs" />
     <Compile Include="GestureRecognizer\AdvancedTapEventArgs.cs" />
     <Compile Include="GestureRecognizer\AdvancedTapGestureRecognizer.cs" />
+    <Compile Include="MoreAnimationExtensions.cs" />
     <Compile Include="MoreEasing.cs" />
     <Compile Include="PaperButtonPage.cs" />
     <Compile Include="PasswordIndicatorPage.cs" />
