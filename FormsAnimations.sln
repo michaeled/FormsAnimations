@@ -16,6 +16,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3D618C
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fonts", "fonts", "{51C30B4F-C432-4B4A-A77B-69448AE4EECC}"
+	ProjectSection(SolutionItems) = preProject
+		fonts\Nunito-Bold.ttf = fonts\Nunito-Bold.ttf
+		fonts\Nunito-Light.ttf = fonts\Nunito-Light.ttf
+		fonts\Nunito-Regular.ttf = fonts\Nunito-Regular.ttf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

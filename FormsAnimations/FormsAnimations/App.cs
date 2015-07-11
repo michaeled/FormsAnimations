@@ -26,7 +26,6 @@ namespace FormsAnimations
             };
 
             list.ItemSelected += List_ItemSelected;
-            
             var rootPage = new ContentPage
             {
                 Title = "Forms Animation Examples",

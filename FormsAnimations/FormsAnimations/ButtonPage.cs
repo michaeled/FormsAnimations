@@ -29,7 +29,7 @@ namespace FormsAnimations
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var btn = sender as Button;
-            await btn.TranslateTo(100, 0, 300, MoreEasing.BackEaseOut);
+            await btn.RelScaleTo(0.3, 300, MoreEasing.BounceEaseOut);
         }
     }
 }

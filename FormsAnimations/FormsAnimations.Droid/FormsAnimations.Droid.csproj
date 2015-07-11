@@ -79,11 +79,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderer\AndroidLabelRenderer.cs" />
+    <Compile Include="CustomRenderer\TapGestureListener.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="..\..\fonts\Nunito-Bold.ttf">
+      <Link>Assets\fonts\Nunito-Bold.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\fonts\Nunito-Light.ttf">
+      <Link>Assets\fonts\Nunito-Light.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\fonts\Nunito-Regular.ttf">
+      <Link>Assets\fonts\Nunito-Regular.ttf</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AndroidAsset>
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -95,7 +107,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\AndroidManifest.xml" />
+    <Content Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FormsAnimations\FormsAnimations.csproj">

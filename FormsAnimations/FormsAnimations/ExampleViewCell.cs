@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace FormsAnimations
 {
@@ -8,15 +9,18 @@ namespace FormsAnimations
         {
             var label = new Label
             {
+                FontFamily = Device.OS == TargetPlatform.iOS ? "[Nunito-Light]" : "fonts/Nunito-Light.ttf",
                 TextColor = Color.Black,
                 YAlign = TextAlignment.Center,
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
 
             label.SetBinding(Label.TextProperty, new Binding { Source = BindingContext });
-            
+
             View = new StackLayout
             {
+                Padding = 5,
+
                 Children =
                 {
                     label,
