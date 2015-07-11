@@ -15,7 +15,7 @@ namespace FormsAnimations.Droid.CustomRenderer
     {
         private readonly GestureDetector _detector;
         private Label _formsObject;
-
+        private bool _test;
 
         public AndroidLabelRenderer()
         {
@@ -46,34 +46,41 @@ namespace FormsAnimations.Droid.CustomRenderer
         }
 
 
-        private void OnTouch(object sender, TouchEventArgs e)
+        private async void OnTouch(object sender, TouchEventArgs e)
         {
-            var listeners = GetAdvancecdListeners();
-            var tapEvent = new AdvancedTapEventArgs();
+            var recognizers = GetAdvancecdRecognizers();
 
-            foreach (var listener in listeners)
+            foreach (var recognizer in recognizers)
             {
-                tapEvent.Control = _formsObject;
-                listener.Command.Execute(tapEvent);
+                var asyncCmd = recognizer.Command as IAsyncCommand;
+
+                if (asyncCmd != null)
+                {
+                    await asyncCmd.ExecuteAsync(null);
+                }
+                else
+                {
+                    recognizer.Command.Execute(null);
+                }
             }
 
-            e.Handled = tapEvent.Handled;
+            e.Handled = false;
             _detector.OnTouchEvent(e.Event);
         }
 
 
-        private IEnumerable<AdvancedTapGestureRecognizer> GetAdvancecdListeners()
+        private IEnumerable<AdvancedTapGestureRecognizer> GetAdvancecdRecognizers()
         {
             if (_formsObject == null)
             {
-                return new AdvancedTapGestureRecognizer[] {};
+                return new AdvancedTapGestureRecognizer[] { };
             }
 
-            var listeners = _formsObject.GestureRecognizers
-                .OfType<AdvancedTapGestureRecognizer>()
-                .ToArray();
+            var recognizers = _formsObject
+                .GestureRecognizers
+                .OfType<AdvancedTapGestureRecognizer>();
 
-            return listeners;
+            return recognizers;
         }
     }
 }

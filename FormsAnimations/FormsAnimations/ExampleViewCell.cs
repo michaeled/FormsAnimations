@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using FormsAnimations.GestureRecognizer;
+﻿using FormsAnimations.GestureRecognizer;
 using Xamarin.Forms;
 
 namespace FormsAnimations
@@ -17,15 +16,16 @@ namespace FormsAnimations
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label))
             };
 
-            var tap = new AdvancedTapGestureRecognizer();
-
-            tap.Command = new Command(async (p) =>
+            var tap = new AdvancedTapGestureRecognizer
             {
-                await label.RelMoveHorizontally(25, 120, Easing.BounceOut);
-            });
+                Command =
+                    new AsyncCommand(async o =>
+                    {
+                        await label.RelMoveHorizontally(25, 250, MoreEasing.BounceEaseOut);
+                    })
+            };
 
             label.GestureRecognizers.Add(tap);
-
             label.SetBinding(Label.TextProperty, new Binding { Source = BindingContext });
 
             View = new StackLayout
