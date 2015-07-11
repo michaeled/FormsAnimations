@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomRenderer\AndroidLabelRenderer.cs" />
-    <Compile Include="CustomRenderer\TapGestureListener.cs" />
+    <Compile Include="CustomRenderer\AndroidTapGestureListener.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

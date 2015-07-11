@@ -3,11 +3,11 @@ using Android.Views;
 
 namespace FormsAnimations.Droid.CustomRenderer
 {
-    public class TapGestureListener : GestureDetector.SimpleOnGestureListener
+    public class AndroidTapGestureListener : GestureDetector.SimpleOnGestureListener
     {
         public override bool OnDown(MotionEvent e)
         {
-            Console.WriteLine("OnDown");
+            // TODO
             return base.OnDown(e);
         }
     }

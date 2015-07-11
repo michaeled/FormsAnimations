@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Diagnostics;
+using FormsAnimations.GestureRecognizer;
 using Xamarin.Forms;
 
 namespace FormsAnimations
@@ -13,7 +14,17 @@ namespace FormsAnimations
                 TextColor = Color.Black,
                 YAlign = TextAlignment.Center,
                 VerticalOptions = LayoutOptions.FillAndExpand,
+                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label))
             };
+
+            var tap = new AdvancedTapGestureRecognizer();
+
+            tap.Command = new Command(() =>
+            {
+                Debug.WriteLine("Advanced!!");
+            });
+
+            label.GestureRecognizers.Add(tap);
 
             label.SetBinding(Label.TextProperty, new Binding { Source = BindingContext });
 
