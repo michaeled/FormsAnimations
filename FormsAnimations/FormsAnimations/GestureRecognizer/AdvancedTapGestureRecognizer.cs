@@ -7,20 +7,7 @@ namespace FormsAnimations.GestureRecognizer
 {
     public class AdvancedTapGestureRecognizer : IGestureRecognizer
     {
-
-        #region Property Changed
-        
-        
         public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            var handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-
-        #endregion
 
 
         private ICommand _command;
@@ -37,6 +24,13 @@ namespace FormsAnimations.GestureRecognizer
                 OnPropertyChanged();
                 _command = value;
             }
+        }
+
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

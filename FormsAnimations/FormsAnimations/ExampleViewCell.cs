@@ -19,9 +19,9 @@ namespace FormsAnimations
 
             var tap = new AdvancedTapGestureRecognizer();
 
-            tap.Command = new Command(() =>
+            tap.Command = new Command(async () =>
             {
-                Debug.WriteLine("Advanced!!");
+                Debug.WriteLine(label.Text);
             });
 
             label.GestureRecognizers.Add(tap);

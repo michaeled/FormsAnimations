@@ -1,4 +1,3 @@
-using System;
 using Android.Views;
 
 namespace FormsAnimations.Droid.CustomRenderer
@@ -7,7 +6,6 @@ namespace FormsAnimations.Droid.CustomRenderer
     {
         public override bool OnDown(MotionEvent e)
         {
-            // TODO
             return base.OnDown(e);
         }
     }

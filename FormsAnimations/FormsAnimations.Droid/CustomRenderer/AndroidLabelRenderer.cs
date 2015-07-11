@@ -31,13 +31,11 @@ namespace FormsAnimations.Droid.CustomRenderer
 
             if (e.NewElement == null)
             {
-                GenericMotion -= OnGenericMotion;
                 Touch -= OnTouch;
             }
 
             if (e.OldElement == null)
             {
-                GenericMotion += OnGenericMotion;
                 Touch += OnTouch;
             }
 
@@ -49,20 +47,6 @@ namespace FormsAnimations.Droid.CustomRenderer
 
 
         private void OnTouch(object sender, TouchEventArgs e)
-        {
-            var listeners = GetAdvancecdListeners();
-
-            foreach (var listener in listeners)
-            {
-                listener.Command.Execute(null);
-            }
-
-            e.Handled = false;
-            _detector.OnTouchEvent(e.Event);
-        }
-
-
-        private void OnGenericMotion(object sender, GenericMotionEventArgs e)
         {
             var listeners = GetAdvancecdListeners();
 
