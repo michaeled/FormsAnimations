@@ -41,6 +41,7 @@
     <Compile Include="ButtonPage.cs" />
     <Compile Include="DoubleExtensions.cs" />
     <Compile Include="ExampleViewCell.cs" />
+    <Compile Include="GestureRecognizer\AdvancedTapEventArgs.cs" />
     <Compile Include="GestureRecognizer\AdvancedTapGestureRecognizer.cs" />
     <Compile Include="MoreEasing.cs" />
     <Compile Include="PaperButtonPage.cs" />

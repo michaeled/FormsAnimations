@@ -49,13 +49,15 @@ namespace FormsAnimations.Droid.CustomRenderer
         private void OnTouch(object sender, TouchEventArgs e)
         {
             var listeners = GetAdvancecdListeners();
+            var tapEvent = new AdvancedTapEventArgs();
 
             foreach (var listener in listeners)
             {
-                listener.Command.Execute(null);
+                tapEvent.Control = _formsObject;
+                listener.Command.Execute(tapEvent);
             }
 
-            e.Handled = false;
+            e.Handled = tapEvent.Handled;
             _detector.OnTouchEvent(e.Event);
         }
 
