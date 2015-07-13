@@ -1,4 +1,5 @@
 ﻿using System;
+using FormsAnimations.Animations;
 using Xamarin.Forms;
 
 namespace FormsAnimations

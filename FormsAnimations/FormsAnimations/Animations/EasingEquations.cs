@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FormsAnimations
+namespace FormsAnimations.Animations
 {
 	public static class EasingEquations
 	{

@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FormsAnimations.GestureRecognizer;
 using Xamarin.Forms;
 
 namespace FormsAnimations
 {
     public class App : Application
     {
-        private readonly Dictionary<string, Type> _pages;
+        private readonly Dictionary<ExampleViewCellModel, Type> _pages;
         public static Size ScreenSize;
 
         public App()
         {
-            _pages = new Dictionary<string, Type>
+            _pages = new Dictionary<ExampleViewCellModel, Type>
             {
-                {"Button Animation", typeof(ButtonPage)},
-                {"Paper Button Animation", typeof(PaperButtonPage)},
-                {"Password Indicator Animation", typeof(PasswordIndicatorPage)}
+                {new ExampleViewCellModel {Title = "Button Animation"}, typeof (ButtonPage)},
+                {new ExampleViewCellModel {Title = "Paper Button Animation"}, typeof (PaperButtonPage)},
+                {new ExampleViewCellModel {Title = "Password Indicator Animation"}, typeof (PasswordIndicatorPage)}
             };
 
             var list = new ListView
@@ -26,6 +27,7 @@ namespace FormsAnimations
             };
 
             list.ItemSelected += List_ItemSelected;
+            
             var rootPage = new ContentPage
             {
                 Title = "Forms Animation Examples",
@@ -78,19 +80,33 @@ namespace FormsAnimations
 
         private async void List_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var key = e.SelectedItem as string;
-            var type = _pages[key];
+            var vm = e.SelectedItem as ExampleViewCellModel;
+
+            if (vm == null)
+            {
+                return;
+            }
+
+            var pageType = _pages[vm];
 
             // create the page object
-            var page = Activator.CreateInstance(type) as Page;
+            var page = Activator.CreateInstance(pageType) as Page;
 
             if (page == null)
             {
                 await MainPage.DisplayAlert("Error", "Couldn't display page.", "OK");
                 return;
             }
-         
-            page.Title = key;
+
+            page.Title = vm.Title;
+
+            var animation = vm.Animation as IAsyncCommand;
+
+            if (animation != null)
+            {
+                await animation.ExecuteAsync(null);
+            }
+
             await MainPage.Navigation.PushAsync(page, true);
         }
 

@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace FormsAnimations
+namespace FormsAnimations.Animations
 {
     public class MoreEasing
     {

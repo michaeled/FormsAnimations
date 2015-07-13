@@ -36,21 +36,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AnimationPlayer.cs" />
     <Compile Include="App.cs" />
     <Compile Include="ButtonPage.cs" />
     <Compile Include="DoubleExtensions.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ExampleViewCell.cs" />
     <Compile Include="GestureRecognizer\AdvancedTapEventArgs.cs" />
     <Compile Include="GestureRecognizer\AdvancedTapGestureRecognizer.cs" />
     <Compile Include="GestureRecognizer\AsyncCommand.cs" />
     <Compile Include="GestureRecognizer\IAsyncCommand.cs" />
-    <Compile Include="MoreAnimationExtensions.cs" />
-    <Compile Include="MoreEasing.cs" />
+    <Compile Include="Animations\MoreEasing.cs" />
     <Compile Include="PaperButtonPage.cs" />
     <Compile Include="PasswordIndicatorPage.cs" />
-    <Compile Include="EasingEquations.cs" />
+    <Compile Include="Animations\EasingEquations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ExampleViewCellModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -66,6 +66,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.4.3.6374\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.4.3.6374\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

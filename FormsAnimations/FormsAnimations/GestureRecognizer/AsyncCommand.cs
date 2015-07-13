@@ -36,9 +36,9 @@ namespace FormsAnimations.GestureRecognizer
         }
 
 
-        public async void Execute(object parameter)
+        public void Execute(object parameter)
         {
-            await ExecuteAsync(parameter);
+            ExecuteAsync(parameter).Wait();
         }
 
 
@@ -49,7 +49,7 @@ namespace FormsAnimations.GestureRecognizer
             
             try
             {
-                await _execute(parameter);
+                await _execute(parameter).ConfigureAwait(false);
             }
             finally
             {

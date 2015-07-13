@@ -1,13 +1,17 @@
-﻿using FormsAnimations.GestureRecognizer;
+﻿using System.Threading.Tasks;
+using FormsAnimations.GestureRecognizer;
 using Xamarin.Forms;
 
 namespace FormsAnimations
 {
     public class ExampleViewCell : ViewCell
     {
+        private readonly Label _label;
+
+
         public ExampleViewCell()
         {
-            var label = new Label
+            _label = new Label
             {
                 FontFamily = Device.OS == TargetPlatform.iOS ? "[Nunito-Light]" : "fonts/Nunito-Light.ttf",
                 TextColor = Color.Black,
@@ -16,28 +20,35 @@ namespace FormsAnimations
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label))
             };
 
-            var tap = new AdvancedTapGestureRecognizer
-            {
-                Command =
-                    new AsyncCommand(async o =>
-                    {
-                        await label.RelMoveHorizontally(25, 250, MoreEasing.BounceEaseOut);
-                    })
-            };
-
-            label.GestureRecognizers.Add(tap);
-            label.SetBinding(Label.TextProperty, new Binding { Source = BindingContext });
-
+            _label.SetBinding(Label.TextProperty, "Title");
+            
             View = new StackLayout
             {
                 Padding = 10,
 
                 Children =
                 {
-                    label,
+                    _label,
                     new BoxView { HeightRequest = 1.0, BackgroundColor = Color.Silver}
                 }
             };
+        }
+
+
+        protected override void OnBindingContextChanged()
+        {
+            var vm = BindingContext as ExampleViewCellModel;
+
+            if (vm != null)
+            {
+                vm.Animation = new AsyncCommand(async _ =>
+                {
+                    await _label.RelScaleTo(0.5, 250);
+                    await Task.Delay(2000);
+                });
+            }
+
+            base.OnBindingContextChanged();
         }
     }
 }
