@@ -7,18 +7,34 @@ namespace FormsAnimations
 {
     public class ExampleViewCellModel : INotifyPropertyChanged
     {
-        private ICommand _animation;
+        private ICommand _tappedAnimation;
+        private ICommand _reset;
+
         private string _title;
 
 
-        public ICommand Animation
+        public ICommand Reset
         {
-            get { return _animation; }
+            get { return _reset; }
             set
             {
-                if (_animation != value)
+                if (_reset != value)
                 {
-                    _animation = value;
+                    _reset = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        
+
+        public ICommand TappedAnimation
+        {
+            get { return _tappedAnimation; }
+            set
+            {
+                if (_tappedAnimation != value)
+                {
+                    _tappedAnimation = value;
                     OnPropertyChanged();
                 }
             }

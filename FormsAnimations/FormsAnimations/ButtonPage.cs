@@ -1,5 +1,4 @@
 ﻿using System;
-using FormsAnimations.Animations;
 using Xamarin.Forms;
 
 namespace FormsAnimations
@@ -30,7 +29,16 @@ namespace FormsAnimations
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var btn = sender as Button;
-            await btn.RelScaleTo(0.3, 300, MoreEasing.BounceEaseOut);
+            if (btn == null) return;
+
+            var original = btn.Scale;
+
+            foreach (var i in new[] { 1,3 })
+            {
+                await btn.RelScaleTo(0.1 / i, 180, Easing.SpringOut);
+                await btn.RelScaleTo(-0.1 / i, 120, Easing.SpringOut);
+                btn.Scale = original;
+            }
         }
     }
 }

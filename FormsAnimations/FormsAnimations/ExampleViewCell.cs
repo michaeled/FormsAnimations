@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using FormsAnimations.GestureRecognizer;
+﻿using FormsAnimations.GestureRecognizer;
 using Xamarin.Forms;
 
 namespace FormsAnimations
@@ -21,7 +20,7 @@ namespace FormsAnimations
             };
 
             _label.SetBinding(Label.TextProperty, "Title");
-            
+
             View = new StackLayout
             {
                 Padding = 10,
@@ -29,11 +28,10 @@ namespace FormsAnimations
                 Children =
                 {
                     _label,
-                    new BoxView { HeightRequest = 1.0, BackgroundColor = Color.Silver}
                 }
             };
         }
-
+        
 
         protected override void OnBindingContextChanged()
         {
@@ -41,10 +39,14 @@ namespace FormsAnimations
 
             if (vm != null)
             {
-                vm.Animation = new AsyncCommand(async _ =>
+                vm.TappedAnimation = new AsyncCommand(async _ =>
                 {
-                    await _label.RelScaleTo(0.5, 250);
-                    await Task.Delay(2000);
+                    await _label.RotateYTo(-3.0, 80, Easing.Linear);
+                });
+
+                vm.Reset = new Command(() =>
+                {
+                    _label.RotationY = 0;
                 });
             }
 

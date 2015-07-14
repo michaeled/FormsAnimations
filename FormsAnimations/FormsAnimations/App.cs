@@ -23,7 +23,8 @@ namespace FormsAnimations
             var list = new ListView
             {
                 ItemTemplate = new DataTemplate(typeof (ExampleViewCell)),
-                ItemsSource = _pages.Keys.ToArray()
+                ItemsSource = _pages.Keys.ToArray(),
+                RowHeight = 50
             };
 
             list.ItemSelected += List_ItemSelected;
@@ -81,8 +82,9 @@ namespace FormsAnimations
         private async void List_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var vm = e.SelectedItem as ExampleViewCellModel;
+            var list = sender as ListView;
 
-            if (vm == null)
+            if (vm == null || list == null)
             {
                 return;
             }
@@ -100,7 +102,8 @@ namespace FormsAnimations
 
             page.Title = vm.Title;
 
-            var animation = vm.Animation as IAsyncCommand;
+            var animation = vm.TappedAnimation as IAsyncCommand;
+            var reset = vm.Reset;
 
             if (animation != null)
             {
@@ -108,6 +111,8 @@ namespace FormsAnimations
             }
 
             await MainPage.Navigation.PushAsync(page, true);
+            list.SelectedItem = null;
+            reset.Execute(null);
         }
 
 
