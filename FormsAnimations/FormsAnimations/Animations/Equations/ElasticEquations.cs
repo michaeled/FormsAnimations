@@ -10,9 +10,8 @@ namespace FormsAnimations.Animations.Equations
                 return 1;
 
             const double p = 0.3;
-            const double s = 0.075;
 
-            return (Math.Pow(2, -10 * x) * Math.Sin((x - s) * (2 * Math.PI) / p));
+            return Math.Pow(2, -10 * x) * Math.Sin((x - p / 4) * (2 * Math.PI) / p) + 1;
         }
 
 
