@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using FormsAnimations.GestureRecognizer;
 
-namespace FormsAnimations.GestureRecognizer
+namespace FormsAnimations.Comanding
 {
     /// <remarks>
     /// Example inspired from:

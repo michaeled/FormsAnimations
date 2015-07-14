@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace FormsAnimations.GestureRecognizer
+namespace FormsAnimations.Comanding
 {
     public interface IAsyncCommand : ICommand
     {

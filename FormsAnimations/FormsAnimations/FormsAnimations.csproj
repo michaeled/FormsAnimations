@@ -52,8 +52,8 @@
     <Compile Include="ExampleViewCell.cs" />
     <Compile Include="GestureRecognizer\AdvancedTapEventArgs.cs" />
     <Compile Include="GestureRecognizer\AdvancedTapGestureRecognizer.cs" />
-    <Compile Include="GestureRecognizer\AsyncCommand.cs" />
-    <Compile Include="GestureRecognizer\IAsyncCommand.cs" />
+    <Compile Include="Comanding\AsyncCommand.cs" />
+    <Compile Include="Comanding\IAsyncCommand.cs" />
     <Compile Include="Animations\MoreEasing.cs" />
     <Compile Include="PaperButtonPage.cs" />
     <Compile Include="PasswordIndicatorPage.cs" />
