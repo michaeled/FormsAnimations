@@ -38,9 +38,9 @@
   <ItemGroup>
     <Compile Include="Animations\Equations\BackEquations.cs" />
     <Compile Include="Animations\Equations\BounceEquations.cs" />
-    <Compile Include="Animations\Equations\CircEquations.cs" />
+    <Compile Include="Animations\Equations\CircularEquations.cs" />
     <Compile Include="Animations\Equations\ElasticEquations.cs" />
-    <Compile Include="Animations\Equations\ExpoEquations.cs" />
+    <Compile Include="Animations\Equations\ExponentialEquations.cs" />
     <Compile Include="Animations\Equations\QuadEquations.cs" />
     <Compile Include="Animations\Equations\QuarticEquations.cs" />
     <Compile Include="Animations\Equations\QuinticEquations.cs" />

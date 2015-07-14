@@ -2,7 +2,7 @@
 
 namespace FormsAnimations.Animations.Equations
 {
-    public static class CircEquations
+    public static class CircularEquations
     {
         public static double EaseOut(double x)
         {

@@ -2,7 +2,7 @@
 
 namespace FormsAnimations.Animations.Equations
 {
-    public static class ExpoEquations
+    public static class ExponentialEquations
     {
         public static double EaseOut(double x)
         {

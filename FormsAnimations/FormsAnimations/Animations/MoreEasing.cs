@@ -41,13 +41,13 @@ namespace FormsAnimations.Animations
 
         static MoreEasing()
         {
-            ExpoEaseOut = new Easing(ExpoEquations.EaseOut);
-            ExpoEaseIn = new Easing(ExpoEquations.EaseIn);
-            ExpoEaseInOut = new Easing(ExpoEquations.EaseInOut);
+            ExpoEaseOut = new Easing(ExponentialEquations.EaseOut);
+            ExpoEaseIn = new Easing(ExponentialEquations.EaseIn);
+            ExpoEaseInOut = new Easing(ExponentialEquations.EaseInOut);
 
-            CircEaseOut = new Easing(CircEquations.EaseOut);
-            CircEaseIn = new Easing(CircEquations.EaseIn);
-            CircEaseInOut = new Easing(CircEquations.EaseInOut);
+            CircEaseOut = new Easing(CircularEquations.EaseOut);
+            CircEaseIn = new Easing(CircularEquations.EaseIn);
+            CircEaseInOut = new Easing(CircularEquations.EaseInOut);
 
             QuadEaseOut = new Easing(QuadEquations.EaseOut);
             QuadEaseIn = new Easing(QuadEquations.EaseIn);
