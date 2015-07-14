@@ -1,4 +1,5 @@
-﻿using FormsAnimations.GestureRecognizer;
+﻿using System.Threading.Tasks;
+using FormsAnimations.GestureRecognizer;
 using Xamarin.Forms;
 
 namespace FormsAnimations
@@ -13,7 +14,7 @@ namespace FormsAnimations
             _label = new Label
             {
                 FontFamily = Device.OS == TargetPlatform.iOS ? "[Nunito-Light]" : "fonts/Nunito-Light.ttf",
-                TextColor = Color.Black,
+                TextColor = Color.FromHex("#5F5F5F"),
                 YAlign = TextAlignment.Center,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label))
@@ -42,6 +43,7 @@ namespace FormsAnimations
                 vm.TappedAnimation = new AsyncCommand(async _ =>
                 {
                     await _label.RotateYTo(-3.0, 80, Easing.Linear);
+                    await Task.Delay(100);
                 });
 
                 vm.Reset = new Command(() =>

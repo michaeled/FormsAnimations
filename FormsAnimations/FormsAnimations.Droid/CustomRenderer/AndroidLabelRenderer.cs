@@ -1,6 +1,5 @@
 using Android.Graphics;
 using Android.Views;
-using Android.Views.Animations;
 using FormsAnimations.Droid.CustomRenderer;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -25,13 +24,6 @@ namespace FormsAnimations.Droid.CustomRenderer
         {
             base.OnElementChanged(e);
             Control.Typeface = Typeface.CreateFromAsset(Forms.Context.Assets, "fonts/Nunito-Light.ttf");
-        }
-
-
-        protected override void OnDraw(Canvas canvas)
-        {
-            base.OnDraw(canvas);
-       
         }
     }
 }

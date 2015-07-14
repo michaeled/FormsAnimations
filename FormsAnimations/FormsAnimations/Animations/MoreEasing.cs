@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using FormsAnimations.Animations.Equations;
+using Xamarin.Forms;
 
 namespace FormsAnimations.Animations
 {
@@ -40,38 +41,38 @@ namespace FormsAnimations.Animations
 
         static MoreEasing()
         {
-            ExpoEaseOut = new Easing(EasingEquations.ExpoEaseOut);
-            ExpoEaseIn = new Easing(EasingEquations.ExpoEaseIn);
-            ExpoEaseInOut = new Easing(EasingEquations.ExpoEaseInOut);
+            ExpoEaseOut = new Easing(ExpoEquations.EaseOut);
+            ExpoEaseIn = new Easing(ExpoEquations.EaseIn);
+            ExpoEaseInOut = new Easing(ExpoEquations.EaseInOut);
 
-            CircEaseOut = new Easing(EasingEquations.CircEaseOut);
-            CircEaseIn = new Easing(EasingEquations.CircEaseIn);
-            CircEaseInOut = new Easing(EasingEquations.CircEaseInOut);
+            CircEaseOut = new Easing(CircEquations.EaseOut);
+            CircEaseIn = new Easing(CircEquations.EaseIn);
+            CircEaseInOut = new Easing(CircEquations.EaseInOut);
 
-            QuadEaseOut = new Easing(EasingEquations.QuadEaseOut);
-            QuadEaseIn = new Easing(EasingEquations.QuadEaseIn);
-            QuadEaseInOut = new Easing(EasingEquations.QuadEaseInOut);
+            QuadEaseOut = new Easing(QuadEquations.EaseOut);
+            QuadEaseIn = new Easing(QuadEquations.EaseIn);
+            QuadEaseInOut = new Easing(QuadEquations.EaseInOut);
 
-            QuartEaseIn = new Easing(EasingEquations.QuartEaseIn);
-            QuartEaseOut = new Easing(EasingEquations.QuartEaseOut);
-            QuartEaseInOut = new Easing(EasingEquations.QuartEaseInOut);
+            QuartEaseIn = new Easing(QuarticEquations.EaseIn);
+            QuartEaseOut = new Easing(QuarticEquations.EaseOut);
+            QuartEaseInOut = new Easing(QuarticEquations.EaseInOut);
 
-            QuintEaseOut = new Easing(EasingEquations.QuintEaseOut);
-            QuintEaseIn = new Easing(EasingEquations.QuintEaseIn);
-            QuintEaseInOut = new Easing(EasingEquations.QuintEaseInOut);
+            QuintEaseOut = new Easing(QuinticEquations.EaseOut);
+            QuintEaseIn = new Easing(QuinticEquations.EaseIn);
+            QuintEaseInOut = new Easing(QuinticEquations.EaseInOut);
 
-            ElasticEaseOut = new Easing(EasingEquations.ElasticEaseOut);
-            ElasticEaseIn = new Easing(EasingEquations.ElasticEaseIn);
+            ElasticEaseOut = new Easing(ElasticEquations.EaseOut);
+            ElasticEaseIn = new Easing(ElasticEquations.EaseIn);
 
-            BounceEaseOut = new Easing(EasingEquations.BounceEaseOut);
-            BounceEaseIn = new Easing(EasingEquations.BounceEaseIn);
-            BounceEaseInOut = new Easing(EasingEquations.BounceEaseInOut);
-            BounceEaseOutIn = new Easing(EasingEquations.BounceEaseOutIn);
+            BounceEaseOut = new Easing(BounceEquations.EaseOut);
+            BounceEaseIn = new Easing(BounceEquations.EaseIn);
+            BounceEaseInOut = new Easing(BounceEquations.EaseInOut);
+            BounceEaseOutIn = new Easing(BounceEquations.EaseOutIn);
 
-            BackEaseOut = new Easing(EasingEquations.BackEaseOut);
-            BackEaseIn = new Easing(EasingEquations.BackEaseIn);
-            BackEaseInOut = new Easing(EasingEquations.BackEaseInOut);
-            BackEaseOutIn = new Easing(EasingEquations.BackEaseOutIn);
+            BackEaseOut = new Easing(BackEquations.EaseOut);
+            BackEaseIn = new Easing(BackEquations.EaseIn);
+            BackEaseInOut = new Easing(BackEquations.EaseInOut);
+            BackEaseOutIn = new Easing(BackEquations.EaseOutIn);
         }
     }
 }

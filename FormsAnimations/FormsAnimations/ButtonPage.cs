@@ -35,8 +35,9 @@ namespace FormsAnimations
 
             foreach (var i in new[] { 1,3 })
             {
-                await btn.RelScaleTo(0.1 / i, 180, Easing.SpringOut);
-                await btn.RelScaleTo(-0.1 / i, 120, Easing.SpringOut);
+                await btn.RelScaleTo(0.09 / i, 190, Easing.SpringOut);
+                await btn.RelScaleTo(-0.09 / i, 140, Easing.SpringOut);
+
                 btn.Scale = original;
             }
         }
