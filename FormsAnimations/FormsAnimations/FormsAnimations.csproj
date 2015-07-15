@@ -44,14 +44,13 @@
     <Compile Include="Animations\Equations\QuadEquations.cs" />
     <Compile Include="Animations\Equations\QuarticEquations.cs" />
     <Compile Include="Animations\Equations\QuinticEquations.cs" />
+    <Compile Include="Animations\Equations\SinusoidalEquations.cs" />
     <Compile Include="Animations\MoreAnimationExtensions.cs" />
     <Compile Include="App.cs" />
     <Compile Include="ButtonPage.cs" />
     <Compile Include="DoubleExtensions.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ExampleViewCell.cs" />
-    <Compile Include="GestureRecognizer\AdvancedTapEventArgs.cs" />
-    <Compile Include="GestureRecognizer\AdvancedTapGestureRecognizer.cs" />
     <Compile Include="Comanding\AsyncCommand.cs" />
     <Compile Include="Comanding\IAsyncCommand.cs" />
     <Compile Include="Animations\MoreEasing.cs" />

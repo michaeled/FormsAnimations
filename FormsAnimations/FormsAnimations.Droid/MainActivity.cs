@@ -12,7 +12,7 @@ using Xamarin.Forms.Platform.Android;
 namespace FormsAnimations.Droid
 {
     [Activity(Label = "FormsAnimations", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+    public class MainActivity : FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -24,7 +24,9 @@ namespace FormsAnimations.Droid
                 Resources.DisplayMetrics.HeightPixels / Resources.DisplayMetrics.Density
             );
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            ActionBar.SetIcon(Android.Resource.Color.Transparent);
+
+            Forms.Init(this, bundle);
             LoadApplication(new App());
         }
     }

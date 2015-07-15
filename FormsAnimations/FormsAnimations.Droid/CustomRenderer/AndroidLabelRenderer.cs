@@ -1,5 +1,4 @@
 using Android.Graphics;
-using Android.Views;
 using FormsAnimations.Droid.CustomRenderer;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -10,16 +9,6 @@ namespace FormsAnimations.Droid.CustomRenderer
 {
     public class AndroidLabelRenderer : LabelRenderer
     {
-        private readonly GestureDetector _detector;
-
-
-        public AndroidLabelRenderer()
-        {
-            var listener = new AndroidTapGestureListener();
-            _detector = new GestureDetector(listener);
-        }
-
-
         protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
         {
             base.OnElementChanged(e);

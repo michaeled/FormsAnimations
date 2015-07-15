@@ -38,6 +38,8 @@ namespace FormsAnimations.Animations
         public static readonly Easing BackEaseInOut;
         public static readonly Easing BackEaseOutIn;
 
+        public static readonly Easing SinDampened;
+
 
         static MoreEasing()
         {
@@ -73,6 +75,8 @@ namespace FormsAnimations.Animations
             BackEaseIn = new Easing(BackEquations.EaseIn);
             BackEaseInOut = new Easing(BackEquations.EaseInOut);
             BackEaseOutIn = new Easing(BackEquations.EaseOutIn);
+
+            SinDampened = new Easing(SinusoidalEquations.Dampened);
         }
     }
 }

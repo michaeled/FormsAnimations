@@ -72,8 +72,7 @@ namespace FormsAnimations
 
         private async Task Spring(Button btn)
         {
-            await btn.RelTranslateX(50, 150, Easing.SpringOut);
-            await btn.RelTranslateX(-50, 700, MoreEasing.ElasticEaseOut);
+            await btn.RelTranslateX(50, 200, MoreEasing.SinDampened);
         }
     }
 }

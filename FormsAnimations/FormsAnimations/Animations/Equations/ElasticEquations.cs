@@ -6,8 +6,7 @@ namespace FormsAnimations.Animations.Equations
     {
         public static double EaseOut(double x)
         {
-            if (x.ApproximatelyEquals(1))
-                return 1;
+            if (x.ApproximatelyEquals(1)) return 1;
 
             const double p = 0.3;
 
@@ -17,8 +16,8 @@ namespace FormsAnimations.Animations.Equations
 
         public static double EaseIn(double x)
         {
-            if (x.ApproximatelyEquals(1))
-                return 1;
+            if (x.ApproximatelyEquals(0)) return 0;
+            if (x.ApproximatelyEquals(1)) return 1;
 
             const double p = 0.3;
             const double s = 0.075;

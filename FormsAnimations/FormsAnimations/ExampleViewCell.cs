@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using FormsAnimations.Comanding;
-using FormsAnimations.GestureRecognizer;
 using Xamarin.Forms;
 
 namespace FormsAnimations
