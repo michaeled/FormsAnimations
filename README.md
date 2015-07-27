@@ -1,6 +1,12 @@
+# Overview
+
+These functions are an adaptation of [Robert Penner's easing functions](http://robertpenner.com/easing/) with the intent to be used with Xamarin.Form's animations.
+
+
 ## A short note
 
-These functions are in beta, and I'm opening this repository because it's been sitting idle for some time. My attention will come back to this library, once other projects are finished.
+These functions are in beta, and I'm opening this repository as it's been sitting idle for some time. My attention will come back to this library, once other projects are finished.
+
 
 ## What's here?
 
@@ -23,7 +29,8 @@ This library supplements the builtin easing functions, with a few more that are 
 **EaseOutIn** | &#10003; | &#10003; | - | - | - | - | - | - | n/a
 **Dampened** | - | - | - | - | - | - | - | - | &#10003;
 
-## Reference
 
-These functions are an adaption of [Robert Penner's easing functions](http://robertpenner.com/easing/).
-[Jesús Gollonet's](https://github.com/jesusgollonet/processing-penner-easing) work was also referenced.
+## References
+
+* [Robert Penner's easing functions](http://robertpenner.com/easing/).
+* [Jesús Gollonet's](https://github.com/jesusgollonet/processing-penner-easing) work was also referenced.
