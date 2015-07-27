@@ -8,9 +8,9 @@ The current version of Xamarin.Forms (1.4.3.6374) includes the following easing 
 
  | Bounce | Cubic | Linear | Sin | Spring
 --- | --- | --- | --- | --- | ---
-**EaseIn** | &#10003 | &#10003 | n/a | &#10003 | &#10003 
-**EaseOut** | &#10003 | &#10003 | n/a | &#10003 | &#10003 
-**EaseInOut** | - | &#10003 | n/a | &#10003 | - 
+**EaseIn** | &#10003; | &#10003; | n/a | &#10003; | &#10003; 
+**EaseOut** | &#10003; | &#10003; | n/a | &#10003; | &#10003;
+**EaseInOut** | - | &#10003; | n/a | &#10003; | - 
 
 
 This library supplements the builtin easing equations, with a few more:
