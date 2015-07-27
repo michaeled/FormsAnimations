@@ -1,6 +1,6 @@
 # Overview
 
-These functions are an adaptation of [Robert Penner's easing functions](http://robertpenner.com/easing/) with the intent to be used with Xamarin.Form's animations.
+These functions are an adaptation of [Robert Penner's easing functions](http://robertpenner.com/easing/). They are intented to be used with Xamarin.Form's animation extensions.
 
 
 ## A short note
