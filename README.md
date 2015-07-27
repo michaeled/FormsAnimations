@@ -6,11 +6,11 @@ These equations are in beta, and I'm opening this repository because it's been s
 
 The current version of Xamarin.Forms (1.4.3.6374) includes the following easing equations:
 
-Bounce | Cubic | Linear | Sin | Spring
---- | --- | --- | --- | ---
-BounceIn | CubicIn | Linear | SinIn | SpringIn
-BounceOut | CoubicInOut | - | SinInOut | SpringOut
-- | CubicOut | - | SinOut | -
+ | Bounce | Cubic | Linear | Sin | Spring
+--- | --- | --- | --- | --- | ---
+**EaseIn** | &#10003 | &#10003 | n/a | &#10003 | &#10003 
+**EaseOut** | &#10003 | &#10003 | n/a | &#10003 | &#10003 
+**EaseInOut** | - | &#10003 | n/a | &#10003 | - 
 
 
 This library supplements the builtin easing equations, with a few more:
