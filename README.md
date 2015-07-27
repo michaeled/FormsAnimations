@@ -30,6 +30,10 @@ This library supplements the builtin easing functions, with a few more that are 
 **Dampened** | - | - | - | - | - | - | - | - | &#10003;
 
 
+## Examples
+
+Examples can be found in the **FormsAnimations** project. At a later time, these will be moved to their own project at a later time.
+
 ## References
 
 * [Robert Penner's easing functions](http://robertpenner.com/easing/).
