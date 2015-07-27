@@ -18,11 +18,8 @@ namespace FormsAnimations.Animations.Equations
 
         public static double EaseInOut(double x)
         {
-            if (x.ApproximatelyEquals(0))
-                return 0;
-
-            if (x.ApproximatelyEquals(1))
-                return 1;
+            if (x.ApproximatelyEquals(0)) return 0;
+            if (x.ApproximatelyEquals(1)) return 1;
 
             if ((x / 2) < 1)
                 return 0.5 * Math.Pow(2, 10 * (x - 1));

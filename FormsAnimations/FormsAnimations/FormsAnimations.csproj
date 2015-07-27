@@ -48,7 +48,7 @@
     <Compile Include="Animations\MoreAnimationExtensions.cs" />
     <Compile Include="App.cs" />
     <Compile Include="ButtonPage.cs" />
-    <Compile Include="DoubleExtensions.cs" />
+    <Compile Include="Animations\DoubleExtensions.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ExampleViewCell.cs" />
     <Compile Include="Comanding\AsyncCommand.cs" />

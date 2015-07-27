@@ -11,8 +11,7 @@ namespace FormsAnimations.Animations.Equations
             // b = period (stretch or compress)
             // c = horizontal translation (move graph left or right)
             // d = vertical translation
-            var r = Math.Sin((10 * x) - x / 2) * Math.Exp(-x);
-            return r;
+            return Math.Sin((10 * x) - x / 2) * Math.Exp(-x);
         }
     }
 }
