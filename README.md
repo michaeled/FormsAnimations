@@ -1,3 +1,7 @@
+## A short note
+
+These equations are in beta, and I'm opening this repository as it's been sitting idle for some time. My attention will come back to this library, once other projects are finished.
+
 ## What's here?
 
 The current version of Xamarin.Forms (1.4.3.6374) includes the following easing equations:
