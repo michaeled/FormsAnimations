@@ -32,7 +32,7 @@ This library supplements the builtin easing functions, with a few more that are 
 
 ## Examples
 
-Examples can be found in the **FormsAnimations** project. At a later time, these will be moved to their own project at a later time.
+Examples can be found in the **FormsAnimations** project. At a later time, these will be moved to their own project at a later time. If you're familiar with the (popping)[https://github.com/schneiderandre/popping] project, you'll notice this project was intended to be a clone.
 
 ## References
 
