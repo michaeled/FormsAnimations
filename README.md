@@ -1,5 +1,7 @@
 # Overview
 
+**This project is inactive, and I will not be making further changes. Pull requests welcome. :P**
+
 These functions are an adaptation of [Robert Penner's easing functions](http://robertpenner.com/easing/). They are intented to be used with Xamarin.Form's animation extensions.
 
 
